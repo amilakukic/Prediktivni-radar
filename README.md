@@ -26,3 +26,22 @@ se definiˇse prekoraˇcena brzina.
 Slanje podataka ploˇci B se realizira koriˇstenjem nekog dugmeta koje  ́ce na klik poslati
 podatke spremljene u memorijski spremnik putem ethernet protokola ili nekog drugog
 protokola ploˇci B.
+
+
+## Clanovi tima:
+
+- [Sara Kardaš](https://github.com/skardas1)
+
+- [Amila Kukić](https://github.com/amilakukic)
+
+- [Harun Goralija](https://github.com/goralija)
+
+- [Nedim Kalajdžija](https://github.com/nkalajdzij1)
+
+##
+
+© 2025 Sara Kardaš & Amila Kukić & Harun Goralija & Nedim Kalajdžija
+
+Faculty of Electrical Engineering
+
+University of Sarajevo
