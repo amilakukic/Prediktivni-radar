@@ -1,4 +1,7 @@
 # Prediktivni-radar
+
+Projekat na predmetu Projektovanje i sinteza digitalnih sistema na Elektrotehničkom fakultetu u Sarajevu
+
 # Opis projekta
 
 Ploˇca A ima mogu ́cnost biti u sljede ́ca 3 stanja:
