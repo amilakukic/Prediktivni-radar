@@ -4,35 +4,84 @@ Projekat na predmetu Projektovanje i sinteza digitalnih sistema na Elektrotehni�
 
 # Opis projekta
 
-Ploˇca A ima mogu ́cnost biti u sljede ́ca 3 stanja:
+Ovaj projekat predstavlja dio sistema za adaptivno upravljanje saobraćajem, razvijenog korištenjem dvije FPGA ploče koje međusobno komuniciraju putem UART protokola.
+Ploča A ima ulogu prikupljanja podataka o brzini kretanja vozila pomoću dva ultrazvučna senzora, detekciju prekoračenja brzine i slanja podataka Ploči B na obradu i donošenje odluka.
 
-• Neaktivno stanje - niti jedna akcija koju ploˇca moˇze poduzeti ne smije biti realizo-
-vana
+# Ciljevi Ploče A
+- Izmjeriti brzinu kretanja vozila korištenjem dva ultrazvučnih senzora.
 
-• Aktvno stanje - ploˇca moˇze poduzeti sve akcije
-• Polu-aktivno stanje - ploˇca moˇze poduzeti sve akcije osim slanja podataka drugoj
-ploˇci
-Stanja se definiˇsu putem switcheva na FPGA ploˇci.
-Ploˇca A moˇze poduzeti sljede ́ce akcije:
-• Snimanje saobra ́caja
-• Dizanje alarma (potjenice) u sluˇcaju prekoraˇcenja brzine
-• Slanje podataka ploˇci B
-Snimanje saobra ́caja je potrebno izvesti koriˇstenjem dva ultra-sonic senzora tako da
-se brzina raˇcuna, uzorkovanjem na ova dva senzora u trenutku t1 i t2 (svaki senzor prati
-po jednu vrijednost t), sa formulom v =
-d
-t2−t1
-gdje d predstavlja distancu izmedu dva
-senzora. Iznenadne promjene vrijednosti na ultrasonicu su znak da se desio prolaz vozila.
-Dizanje alarma (potjernice) se realizuje koriˇstenjem buzzer senzora koji  ́ce se ukljuˇciti u
-sluˇcaju prekoraˇcene brzine i ispuˇstati zvuk 3 sekunde. Potrebno je da pri izradi projekta
-se definiˇse prekoraˇcena brzina.
-Slanje podataka ploˇci B se realizira koriˇstenjem nekog dugmeta koje  ́ce na klik poslati
-podatke spremljene u memorijski spremnik putem ethernet protokola ili nekog drugog
-protokola ploˇci B.
+- Pohraniti izmjerene podatke o brzinama u memoriju.
+
+- Aktivirati alarm (buzzer) u slučaju prekoračenja definisane brzine.
+
+* Omogućiti pouzdanu komunikaciju s Pločom B putem UART-a.
+
+- Upravljati stanjima ploče preko switcheva.
+
+# Stanja Ploče A
+Ploča A može biti u jednom od tri stanja:
+
+- Neaktivno stanje — nijedna akcija se ne smije izvršavati.
+
+- Aktivno stanje — omogućeno izvršavanje svih akcija.
+
+- Polu-aktivno stanje — omogućene sve akcije osim slanja podataka Ploči B.
+
+Stanja se biraju pomoću switcheva na FPGA ploči.
+
+ # Funkcionalnosti
+## Mjerenje brzine
+Brzina vozila se izračunava na osnovu vremena prolaska između dva ultrazvučna senzora koristeći formulu:
+
+v = (d × f_clk) / t
+
+Gdje je:
+
+- d = 10cm, udaljenost između senzora
+
+- fclk = 50MHz
+
+- t = timer
+
+Iznenadna promjena vrijednosti na ultrazvučnim senzorima označava prolazak vozila.
+
+## Alarm za prekoračenje brzine
+Ako izmjerena brzina pređe unaprijed definisanu vrijednost (50 cm/s), aktivira se buzzer senzor koji emituje zvuk u trajanju od 3 sekunde.
+
+## Slanje podataka Ploči B
+Kada je Ploča A u aktivnom stanju, podaci pohranjeni u memoriji se šalju Ploči B putem UART komunikacije.
+
+# Uputstvo za korištenje
+- Podesiti switcheve na ploči na željeno stanje (Switch1/Switch0):
+
+  - 00, 10 — Neaktivno
+
+  - 01 — Polu-aktivno
+
+  - 11 — Aktivno
+
+- Postaviti ultrazvučne senzore i buzzer na odgovarajuće pinove i pokrenuti sistem.
+
+- Definisati prag za prekoračenje brzine.
+
+- Testirati sistem prolaskom vozila (ili simulacijom prolaza).
+
+# Tehnologije korištene
+- FPGA ploče
+
+- Ultrazvučni senzori
+
+- Buzzer senzor
+
+- UART komunikacija
+
+- VHDL
 
 
-## Clanovi tima:
+
+
+
+# Članovi tima:
 
 - [Sara Kardaš](https://github.com/skardas1)
 
