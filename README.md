@@ -1,5 +1,6 @@
 # Prediktivni-radar
-#opis projekta
+# Opis projekta
+
 Ploˇca A ima mogu ́cnost biti u sljede ́ca 3 stanja:
 
 • Neaktivno stanje - niti jedna akcija koju ploˇca moˇze poduzeti ne smije biti realizo-
